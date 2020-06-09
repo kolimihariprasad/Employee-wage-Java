@@ -5,12 +5,17 @@ public class EmpWageBuilderUC1 {
 		int EMP_RATE_PER_HR=20;
 		int empHrs;
 		double empCheck=Math.floor(Math.random() * 10) % 3;
-		if (empCheck == IS_FULL_TIME)
-			empHrs=8;
-		else if(empCheck == IS_PART_TIME)
-			empHrs=4;
-		else
-			empHrs=0;
+		switch ((int)empCheck) {
+			case 2:
+				empHrs=8;
+				break;
+			case 1:
+				empHrs=4;
+				break;
+			default:
+				empHrs=0;
+				break;
+		}
 		int totalSalary=empHrs*EMP_RATE_PER_HR;
 		System.out.println(totalSalary);
 	}

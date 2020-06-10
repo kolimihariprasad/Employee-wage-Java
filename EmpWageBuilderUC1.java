@@ -9,10 +9,10 @@ public class EmpWageBuilderUC1 {
 		//Variables
 		int empHrs;
 		int totalHrs=0;
-		int NumWorkingDays=0;
-		while(NumWorkingDays<=TOTAL_WORKING_DAYS && totalHrs<=TOTAL_WORKING_HOURS) {
-			double empCheck=Math.floor(Math.random() * 10) % 3;
-			switch ((int)empCheck) {
+		int numWorkingDays=0;
+		while(numWorkingDays<=TOTAL_WORKING_DAYS && totalHrs<=TOTAL_WORKING_HOURS) {
+			int empCheck=(int)Math.floor(Math.random() * 10) % 3;
+			switch (empCheck) {
 				case 2:
 					empHrs=8;
 					break;
@@ -23,8 +23,10 @@ public class EmpWageBuilderUC1 {
 					empHrs=0;
 					break;
 			}
-			totalHrs+=empHrs;
-			NumWorkingDays++;
+			if(totalHrs<=TOTAL_WORKING_HOURS) {
+				totalHrs+=empHrs;
+				numWorkingDays++;
+			}
 		}
 		int totalSalary=totalHrs*EMP_RATE_PER_HR;
 		System.out.println(totalSalary);
